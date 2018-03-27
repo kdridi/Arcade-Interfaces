@@ -7,10 +7,10 @@
 
 #pragma once
 
-#include "RenderTarget.hpp"
-
 namespace engine
 {
+	class RenderTarget;
+
 	class Drawable
 	{
 	public:
