@@ -11,6 +11,7 @@
 
 #include "Color.hpp"
 #include "Drawable.hpp"
+#include "RenderTarget.hpp"
 #include "Transformable.hpp"
 #include "Vector.hpp"
 
@@ -28,9 +29,29 @@ namespace engine
 		Text &operator=(Text const &) = delete;
 		Text &operator=(Text &&) = default;
 
-		// Here you'll need to specifiy the prototypes of the pure
-		// virtual member functions inherited from Transformable and
-		// Drawable
+		/**
+		 * \brief Draw itself into the given renderer.
+		 * \param RenderTarget target
+		 */
+		void draw(RenderTarget &renderer) const;
+
+		/**
+		 * \brief Move the transformable to the given position.
+		 * \param Vector2f newPos
+		 */
+		void moveTo(Vector2f const &newPos);
+
+		/**
+		 * \brief Move the transformable by the given offset.
+		 * \param Vector2f offset
+		 */
+		void move(Vector2f const &offset);
+
+		/**
+		 * \brief Get the transformable current position.
+		 * \return Vector2f
+		 */
+		Vector2f const &getPosition() const;
 
 		/**
 		 * \brief Set the text value.
@@ -79,5 +100,21 @@ namespace engine
 		 * \return Color
 		 */
 		Color const &getColor() const;
+
+	private:
+		// Text value
+		std::string m_text;
+
+		// Font path
+		std::string m_font;
+
+		// Text position
+		Vector2f m_position;
+
+		// Font size
+		std::size_t m_size;
+
+		// Font color
+		Color m_color;
 	};
 }

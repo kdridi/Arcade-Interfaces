@@ -19,7 +19,7 @@ namespace arcade
 	class Game
 	{
 	public:
-		using Scores = std::map<std::uint64_t, std::string>;
+		using Scores = std::multimap<std::uint64_t, std::string>;
 
 		Game() = default;
 		virtual ~Game() = default;

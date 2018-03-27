@@ -10,6 +10,7 @@
 #include <string>
 
 #include "Drawable.hpp"
+#include "RenderTarget.hpp"
 #include "Transformable.hpp"
 #include "Vector.hpp"
 
@@ -27,9 +28,29 @@ namespace engine
 		Sprite &operator=(Sprite const &) = delete;
 		Sprite &operator=(Sprite &&) = default;
 
-		// Here you'll need to specifiy the prototypes of the pure
-		// virtual member functions inherited from Transformable and
-		// Drawable
+		/**
+		 * \brief Draw itself into the given renderer.
+		 * \param RenderTarget target
+		 */
+		void draw(RenderTarget &renderer) const;
+
+		/**
+		 * \brief Move the transformable to the given position.
+		 * \param Vector2f newPos
+		 */
+		void moveTo(Vector2f const &newPos);
+
+		/**
+		 * \brief Move the transformable by the given offset.
+		 * \param Vector2f offset
+		 */
+		void move(Vector2f const &offset);
+
+		/**
+		 * \brief Get the transformable current position.
+		 * \return Vector2f
+		 */
+		Vector2f const &getPosition() const;
 
 		/**
 		 * \brief Set the image file path.
@@ -50,9 +71,9 @@ namespace engine
 		void setSize(Vector2f const &size);
 
 		/**
-		* \brief Set the sprite rotation.
-		* \param std::size_t rotation
-		*/
+		 * \brief Set the sprite rotation.
+		 * \param std::size_t rotation
+		 */
 		void setRotation(float rotation);
 
 		/**
@@ -74,9 +95,25 @@ namespace engine
 		Vector2f const &getSize() const;
 
 		/**
-		* \brief Get the sprite rotation.
-		* \return float
-		*/
+		 * \brief Get the sprite rotation.
+		 * \return float
+		 */
 		float getRotation() const;
+
+	private:
+		// Image path
+		std::string m_imageFile;
+
+		// Ascii image path
+		std::string m_asciiFile;
+
+		// Sprite position
+		Vector2f m_position;
+
+		// Sprite size (width and height)
+		Vector2f m_size;
+
+		// Sprite rotation (degrees)
+		float m_rotation;
 	};
 }
