@@ -65,12 +65,6 @@ namespace engine
 		virtual void clear() = 0;
 
 		/**
-		 * \brief Draw an entity into the render window.
-		 * \param Drawable drawable
-		 */
-		virtual void draw(Drawable const &drawable) = 0;
-
-		/**
 		 * \brief Display into the window what have been rendered.
 		 */
 		virtual void display() = 0;
