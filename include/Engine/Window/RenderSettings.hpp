@@ -8,14 +8,14 @@
 #pragma once
 
 #include <cstddef>
+#include "Engine/Renderer/Vector.hpp"
 
 namespace engine
 {
 	struct RenderSettings final
 	{
 		// Render resolution
-		std::size_t width;
-		std::size_t height;
+		Vector2u size;
 
 		// Enable fullscreen
 		bool fullscreen;
