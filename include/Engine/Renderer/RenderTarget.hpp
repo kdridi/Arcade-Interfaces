@@ -7,6 +7,9 @@
 
 #pragma once
 
+#include "Sprite.hpp"
+#include "Text.hpp"
+
 namespace engine
 {
 	class Sprite;

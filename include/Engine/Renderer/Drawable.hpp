@@ -7,11 +7,13 @@
 
 #pragma once
 
+#include "Transformable.hpp"
+
 namespace engine
 {
 	class RenderTarget;
 
-	class Drawable
+	class Drawable : public virtual Transformable
 	{
 	public:
 		Drawable() = default;

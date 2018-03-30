@@ -16,11 +16,11 @@
 
 namespace engine
 {
-	class Sprite final : public Transformable, public Drawable
+	class Sprite : public virtual Drawable
 	{
 	public:
 		Sprite() = default;
-		virtual ~Sprite() = default;
+		~Sprite() override = default;
 
 		Sprite(Sprite const &) = delete;
 		Sprite(Sprite &&) = default;
@@ -32,88 +32,72 @@ namespace engine
 		 * \brief Draw itself into the given renderer.
 		 * \param RenderTarget target
 		 */
-		void draw(RenderTarget &renderer) const;
+		virtual void draw(RenderTarget &renderer) const = 0;
 
 		/**
 		 * \brief Move the transformable to the given position.
 		 * \param Vector2f newPos
 		 */
-		void moveTo(Vector2f const &newPos);
+		virtual void moveTo(Vector2f const &newPos) = 0;
 
 		/**
 		 * \brief Move the transformable by the given offset.
 		 * \param Vector2f offset
 		 */
-		void move(Vector2f const &offset);
+		virtual void move(Vector2f const &offset) = 0;
 
 		/**
 		 * \brief Get the transformable current position.
 		 * \return Vector2f
 		 */
-		Vector2f const &getPosition() const;
+		virtual Vector2f const &getPosition() const = 0;
 
 		/**
 		 * \brief Set the image file path.
 		 * \param std::string filepath
 		 */
-		void setImageFile(std::string const &filepath);
+		virtual void setImageFile(std::string const &filepath) = 0;
 
 		/**
 		 * \brief Set the ASCII image file path.
 		 * \param std::string filepath
 		 */
-		void setAsciiFile(std::string const &filepath);
+		virtual void setAsciiFile(std::string const &filepath) = 0;
 
 		/**
 		 * \brief Set the sprite size.
 		 * \param Vector2f size
 		 */
-		void setSize(Vector2f const &size);
+		virtual void setSize(Vector2f const &size) = 0;
 
 		/**
 		 * \brief Set the sprite rotation.
 		 * \param std::size_t rotation
 		 */
-		void setRotation(float rotation);
+		virtual void setRotation(float rotation) = 0;
 
 		/**
 		 * \brief Get the image file path.
 		 * \return std::string
 		 */
-		std::string const &getImageFile() const;
+		virtual std::string const &getImageFile() const = 0;
 
 		/**
 		 * \brief Get the ASCII image file path.
 		 * \return std::string
 		 */
-		std::string const &getAsciiFile() const;
+		virtual std::string const &getAsciiFile() const = 0;
 
 		/**
 		 * \brief Get the sprite size.
 		 * \return Vector2f
 		 */
-		Vector2f const &getSize() const;
+		virtual Vector2f const &getSize() const = 0;
 
 		/**
 		 * \brief Get the sprite rotation.
 		 * \return float
 		 */
-		float getRotation() const;
-
-	private:
-		// Image path
-		std::string m_imageFile;
-
-		// Ascii image path
-		std::string m_asciiFile;
-
-		// Sprite position
-		Vector2f m_position;
-
-		// Sprite size (width and height)
-		Vector2f m_size;
-
-		// Sprite rotation (degrees)
-		float m_rotation;
+		virtual float getRotation() const = 0;
 	};
 }
