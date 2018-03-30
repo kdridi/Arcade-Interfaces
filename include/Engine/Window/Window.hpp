@@ -10,7 +10,6 @@
 #include <string>
 
 #include "Engine/Renderer/Drawable.hpp"
-#include "Engine/Renderer/Vector.hpp"
 #include "Engine/System/Event.hpp"
 #include "RenderSettings.hpp"
 
@@ -31,10 +30,9 @@ namespace engine
 		/**
 		 * \brief Create the window.
 		 * \param std::string title       -> Window's title.
-		 * \param Vector2u size           -> Window's size.
 		 * \param RenderSettings settings -> Render settings.
 		 */
-		virtual void create(std::string const &title, Vector2u const &size, RenderSettings const &settings) = 0;
+		virtual void create(std::string const &title, RenderSettings const &settings) = 0;
 
 		/**
 		 * \brief Close the window and destroy all of its resources
