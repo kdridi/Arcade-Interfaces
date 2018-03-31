@@ -52,7 +52,13 @@ namespace engine
 		 * \param Color color
 		 */
 		virtual void setColor(Color const &color) = 0;
-		
+
+		/**
+		 * \brief Set the text background color.
+		 * \param Color color
+		 */
+		virtual void setBackgroundColor(Color const &color) = 0;
+
 		/**
 		 * \brief Get the text value
 		 * \return std::string
@@ -76,5 +82,11 @@ namespace engine
 		 * \return Color
 		 */
 		virtual Color const &getColor() const = 0;
+
+		/**
+		 * \brief Get the text background color.
+		 * \return Color
+		 */
+		virtual Color getBackgroundColor() const = 0;
 	};
 }
