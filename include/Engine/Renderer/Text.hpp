@@ -30,30 +30,6 @@ namespace engine
 		Text &operator=(Text &&) = default;
 
 		/**
-		 * \brief Draw itself into the given renderer.
-		 * \param RenderTarget target
-		 */
-		virtual void draw(RenderTarget &renderer) const = 0;
-
-		/**
-		 * \brief Move the transformable to the given position.
-		 * \param Vector2f newPos
-		 */
-		virtual void moveTo(Vector2f const &newPos) = 0;
-
-		/**
-		 * \brief Move the transformable by the given offset.
-		 * \param Vector2f offset
-		 */
-		virtual void move(Vector2f const &offset) = 0;
-
-		/**
-		 * \brief Get the transformable current position.
-		 * \return Vector2f
-		 */
-		virtual Vector2f const &getPosition() const = 0;
-
-		/**
 		 * \brief Set the text value.
 		 * \param std::string text
 		 */
