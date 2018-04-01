@@ -76,7 +76,13 @@ namespace engine
 		 * \param Color color
 		 */
 		void setColor(Color const &color);
-		
+
+		/**
+		 * \brief Set the text background color.
+		 * \param Color color
+		 */
+		void setBackgroundColor(Color const &color);
+
 		/**
 		 * \brief Get the text value
 		 * \return std::string
@@ -101,6 +107,12 @@ namespace engine
 		 */
 		Color const &getColor() const;
 
+		/**
+		 * \brief Get the text background color.
+		 * \return Color
+		 */
+		Color getBackgroundColor() const;
+
 	private:
 		// Text value
 		std::string m_text;
@@ -116,5 +128,8 @@ namespace engine
 
 		// Font color
 		Color m_color;
+
+		// BG color
+		Color m_bgcolor;
 	};
 }
