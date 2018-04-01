@@ -10,12 +10,13 @@
 #include <string>
 
 #include "Engine/Renderer/Drawable.hpp"
+#include "Engine/Renderer/RenderTarget.hpp"
 #include "Engine/System/Event.hpp"
 #include "RenderSettings.hpp"
 
 namespace engine
 {
-	class Window
+	class Window : public RenderTarget
 	{
 	public:
 		Window() = default;
