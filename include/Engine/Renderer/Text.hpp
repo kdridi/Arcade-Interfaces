@@ -17,11 +17,11 @@
 
 namespace engine
 {
-	class Text final : public Transformable, public Drawable
+	class Text : public virtual Drawable
 	{
 	public:
 		Text() = default;
-		virtual ~Text() = default;
+		~Text() override = default;
 
 		Text(Text const &) = delete;
 		Text(Text &&) = default;
@@ -30,91 +30,63 @@ namespace engine
 		Text &operator=(Text &&) = default;
 
 		/**
-		 * \brief Draw itself into the given renderer.
-		 * \param RenderTarget target
-		 */
-		void draw(RenderTarget &renderer) const;
-
-		/**
-		 * \brief Move the transformable to the given position.
-		 * \param Vector2f newPos
-		 */
-		void moveTo(Vector2f const &newPos);
-
-		/**
-		 * \brief Move the transformable by the given offset.
-		 * \param Vector2f offset
-		 */
-		void move(Vector2f const &offset);
-
-		/**
-		 * \brief Get the transformable current position.
-		 * \return Vector2f
-		 */
-		Vector2f const &getPosition() const;
-
-		/**
 		 * \brief Set the text value.
 		 * \param std::string text
 		 */
-		void setText(std::string const &text);
+		virtual void setText(std::string const &text) = 0;
 		
 		/**
 		 * \brief Set the font path.
 		 * \param std::string fontpath
 		 */
-		void setFont(std::string const &fontpath);
+		virtual void setFont(std::string const &fontpath) = 0;
 		
 		/**
 		 * \brief Set the text size.
 		 * \param std::size_t size
 		 */
-		void setSize(std::size_t size);
+		virtual void setSize(std::size_t size) = 0;
 		
 		/**
 		 * \brief Set the text color.
 		 * \param Color color
 		 */
-		void setColor(Color const &color);
-		
+		virtual void setColor(Color const &color) = 0;
+
+		/**
+		 * \brief Set the text background color.
+		 * \param Color color
+		 */
+		virtual void setBackgroundColor(Color const &color) = 0;
+
 		/**
 		 * \brief Get the text value
 		 * \return std::string
 		 */
-		std::string const &getText() const;
+		virtual std::string const &getText() const = 0;
 
 		/**
 		 * \brief Get the font path.
 		 * \return std::string
 		 */
-		std::string const &getFont() const;
+		virtual std::string const &getFont() const = 0;
 
 		/**
 		 * \brief Get the text size.
 		 * \return std::size_t
 		 */
-		std::size_t getSize() const;
+		virtual std::size_t getSize() const = 0;
 
 		/**
 		 * \brief Get the text color.
 		 * \return Color
 		 */
-		Color const &getColor() const;
+		virtual Color const &getColor() const = 0;
 
-	private:
-		// Text value
-		std::string m_text;
-
-		// Font path
-		std::string m_font;
-
-		// Text position
-		Vector2f m_position;
-
-		// Font size
-		std::size_t m_size;
-
-		// Font color
-		Color m_color;
+		/**
+		 * \brief Get the text background color.
+		 * \return Color
+		 */
+		virtual Color getBackgroundColor() const = 0;
 	};
 }

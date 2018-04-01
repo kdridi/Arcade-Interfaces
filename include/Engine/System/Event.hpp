@@ -104,7 +104,7 @@ namespace engine
 		JoystickAxis axis;
 
 		// Interval [-1.0, 1.0]
-		float poisition;
+		float position;
 	};
 
 	struct JoystickButtonEvent final
