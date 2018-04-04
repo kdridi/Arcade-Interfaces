@@ -167,3 +167,19 @@ Here, `Game::Scores` is a `std::multimap<std::uint64_t, std::string>`.
 # Events
 
 In order to comply with all render engines, it's recommended to make your games fully playable (including menus) with the keyboard. Indeed, some render engines may not implement joystick or mouse handling.
+
+# Entry Point
+
+The entry point for each library **MUST BE** :
+
+```cpp
+extern "C"
+{
+	void *instantiate()
+	{
+		return new /* Your class */;
+	}
+}
+```
+
+There's no need to declare it into a `.hpp` file.
